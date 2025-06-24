@@ -3,7 +3,7 @@ services:
     build: ./service_1
     container_name: service1
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://10.24.1.11:8001/ping"]
+      test: ["CMD", "curl", "-f", "http://localhost:8001/ping"]
       interval: 3s
       timeout: 10s
       retries: 3
@@ -13,7 +13,7 @@ services:
     build: ./service_2
     container_name: service2
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://10.24.1.11:8002/ping"]
+      test: ["CMD", "curl", "-f", "http://localhost:8002/ping"]
       interval: 3s
       timeout: 10s
       retries: 3
