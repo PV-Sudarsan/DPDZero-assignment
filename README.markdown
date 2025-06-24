@@ -1,6 +1,17 @@
 # DevOps Intern Assignment: Nginx Reverse Proxy + Docker
 
 This project sets up a Docker Compose-based system with an Nginx reverse proxy routing requests to two backend services (Golang and Python applications).
+## Project Structure
+.
+├── docker-compose.yml
+├── nginx
+|   └── nginx.conf
+│   └── Dockerfile
+├── service_1
+│   └── Dockerfile
+├── service_2
+│   └── Dockerfile
+└── README.md
 
 ## Setup Instructions
 
