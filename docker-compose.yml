@@ -19,11 +19,13 @@ services:
       retries: 3
     expose:
       - "8002"
-  nginx:
-    build: ./nginx
-    container_name: nginx
-    ports:
-      - "80:80"
-    depends_on:
-      - service1
-      - service2
+nginx:
+  build: ./nginx
+  container_name: nginx
+  ports:
+    - "80:80"
+  depends_on:
+    service1:
+      condition: service_healthy
+    service2:
+      condition: service_healthy
