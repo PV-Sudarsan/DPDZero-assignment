@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/ping")
 def ping():
-    return jsonify(status="ok", service="2")
+    return jsonify(status="ok done", service="2")
 
 
 @app.route("/hello")
