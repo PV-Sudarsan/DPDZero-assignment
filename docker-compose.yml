@@ -7,7 +7,7 @@ services:
       interval: 3s
       timeout: 10s
       retries: 3
-    expose:
+    ports:
       - "8001:8001"
   service2:
     build: ./service_2
@@ -17,7 +17,7 @@ services:
       interval: 3s
       timeout: 10s
       retries: 3
-    expose:
+    ports:
       - "8002:8002"
   nginx:
     build: ./nginx
