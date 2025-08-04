@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   service1:
     build: ./service_1
@@ -11,9 +9,6 @@ services:
       retries: 3
     expose:
       - "8001"
-    networks:
-      - mynet
-
   service2:
     build: ./service_2
     container_name: service2
@@ -24,27 +19,11 @@ services:
       retries: 3
     expose:
       - "8002"
-    networks:
-      - mynet
-
   nginx:
     build: ./nginx
     container_name: nginx
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost" ]
-      interval: 10s
-      timeout: 3s
-      retries: 3
     ports:
       - "80:80"
     depends_on:
-      service1:
-        condition: service_healthy
-      service2:
-        condition: service_healthy
-    networks:
-      - mynet
-
-networks:
-  mynet:
-    driver: bridge
+      - service1
+      - service2
